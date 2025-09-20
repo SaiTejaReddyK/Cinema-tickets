@@ -14,7 +14,7 @@ This project implements a TicketService for purchasing cinema tickets according 
  
 •	Correctly calculates total payment and number of seats.
 
-•	Rejects invalid purchase requests (e.g., children without adults, >25 tickets, invalid account).
+•	Rejects invalid purchase requests (e.g.,children without adults, >25 tickets, invalid account).
 
 The solution is implemented using Java 21, with a testable code. 
 
