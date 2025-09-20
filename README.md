@@ -16,7 +16,7 @@ This project implements a TicketService for purchasing cinema tickets according 
 
 •	Rejects invalid purchase requests (e.g.,children without adults, >25 tickets, invalid account).
 
-The solution is implemented using Java 21, with a testable code. 
+The solution is implemented using Maven -Java 21, with a testable code. 
 
 - Testing Framework: JUnit 5
 
