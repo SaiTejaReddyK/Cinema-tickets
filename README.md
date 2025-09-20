@@ -1,45 +1,55 @@
-**Overview**
-This project implements a TicketService for purchasing cinema tickets according to the specified business rules:
+# Objective
 
--	Maximum 25 tickets per transaction.
+This is a coding exercise which will allow you to demonstrate how you code and your approach to a given problem.
 
+You will be assessed on:
 
-**Ticket types:**
+- Your ability to write clean, well-tested and reusable code.
+- How you have ensured the following business rules are correctly met.
 
- **ADULT** – £25, reserved seat
+# Business Rules
 
- **CHILD** – £15, reserved seat (requires at least one Adult)
- 
- **INFANT**– £0, no seat (requires at least one Adult)
- 
-•	Correctly calculates total payment and number of seats.
+- There are 3 types of tickets i.e. Infant, Child, and Adult.
+- The ticket prices are based on the type of ticket (see table below).
+- The ticket purchaser declares how many and what type of tickets they want to buy.
+- Multiple tickets can be purchased at any given time.
+- Only a maximum of 20 tickets that can be purchased at a time.
+- Infants do not pay for a ticket and are not allocated a seat. They will be sitting on an Adult's lap.
+- Child and Infant tickets cannot be purchased without purchasing an Adult ticket.
 
-•	Rejects invalid purchase requests (e.g.,children without adults, >25 tickets, invalid account).
+|   Ticket Type    |     Price   |
+| ---------------- | ----------- |
+|    INFANT        |    £0       |
+|    CHILD         |    £10      |
+|    ADULT         |    £20      |
 
-The solution is implemented using Maven -Java 21, with a testable code. 
+- There is an existing TicketPaymentService responsible for taking payments.
+- There is an existing SeatReservationService responsible for reserving seats.
 
-- Testing Framework: JUnit 5
+## Constraints
 
-**Key Components**
+- The TicketService interface CANNOT be modified.
+- The Java code in the thirdparty.* packages CANNOT be modified.
+- The TicketTypeRequest SHOULD be an immutable object.
 
-**Domain**
+## Assumptions
 
-•	TicketTypeRequest – immutable record representing a ticket request.
+You can assume:
 
-**Validation**
+- All accounts with an id greater than zero are valid. They also have sufficient funds to pay for any no of tickets.
+- The TicketPaymentService implementation is an external provider with no defects. You do not need to worry about how
+  the actual payment happens.
+- The payment will always go through once a payment request has been made to the TicketPaymentService.
+- The SeatReservationService implementation is an external provider with no defects. You do not need to worry about how
+  the seat reservation algorithm works.
+- The seat will always be reserved once a reservation request has been made to the SeatReservationService.
 
-•	TicketPurchaseValidator – handles all validation logic (SRP).
+## Your Task
 
-**Service**
+Provide a working implementation of a TicketService that:
 
-•	TicketServiceImpl – orchestrates validation, payment, and seat reservation.
-
-•	Integrates with TicketPaymentService and SeatReservationService (third-party stubs).
-
-**Tests**
-
-•	TicketPurchaseValidatorTest – unit tests covering valid and invalid scenarios.
-
-•	Tests ensure all business rules are enforced.
-
-•	Tests are implemented using JUnit 5.
+- Considers the above objective, business rules, constraints & assumptions.
+- Calculates the correct amount for the requested tickets and makes a payment request to the TicketPaymentService.
+- Calculates the correct no of seats to reserve and makes a seat reservation request to the SeatReservationService.
+- Rejects any invalid ticket purchase requests. It is up to you to identify what should be deemed as an invalid purchase
+  request.
