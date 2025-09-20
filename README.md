@@ -20,8 +20,8 @@ You will be assessed on:
 |   Ticket Type    |     Price   |
 | ---------------- | ----------- |
 |    INFANT        |    £0       |
-|    CHILD         |    £10      |
-|    ADULT         |    £20      |
+|    CHILD         |    £15      |
+|    ADULT         |    £25      |
 
 - There is an existing TicketPaymentService responsible for taking payments.
 - There is an existing SeatReservationService responsible for reserving seats.
